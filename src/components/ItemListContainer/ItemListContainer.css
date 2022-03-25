@@ -1,0 +1,17 @@
+.ProductsMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.TitleMain {
+  color: white;
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+.Construction {
+  width: 30%;
+  border-radius: 20px;
+}
