@@ -1,0 +1,21 @@
+.CardProduct {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+  width: 25%;
+  background-color: blueviolet;
+  border-radius: 15%;
+}
+
+.ProductName {
+  font-family: sans-serif;
+  font-size: 30px;
+  color: white;
+}
+
+.ProductImage {
+  width: 70%;
+  border-radius: 10%;
+}
