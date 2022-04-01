@@ -9,7 +9,7 @@ const ItemListContainer=(props)=>{
         {props.greeting}
       </h1>
     <img className="Construction" src={Construction} alt="sitio en construccion" />
-    <CardProduct product="Lucky wookie" />
+    <CardProduct product="Lucky wookie" stock="10" />
     </article>
   );
 };

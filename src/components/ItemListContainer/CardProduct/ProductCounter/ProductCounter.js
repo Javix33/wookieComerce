@@ -1,18 +1,34 @@
 import "./ProductCounter.css";
+import {useState} from 'react';
 
 const ProductCounter=(props)=>{
+    const [count, countFunction] = useState(0);
+    const add=()=>{
+      if (count < props.stock){
+      countFunction(count +1);
+    };
+  };
+
+    const min =()=>{
+      if(count>0){
+      countFunction(count-1);
+    };
+  };
   return(
     <div className="CounterCard">
-      <p className="SignosCounter">
+      <button onClick={add} className="SignosCounter">
         +
-      </p>
+      </button>
       <p className="Mesage">
-        Añadir {props.counter} productos al carrito.
+        Añadir {count} productos al carrito.
       </p>
-      <p className="SignosCounter">
+      <button onClick={min} className="SignosCounter">
         -
-      </p>
+      </button>
+      <button className="ButtonAdd">
+        Añadir al carrito
+      </button>
     </div>
   );
-};
+  };
 export default ProductCounter;
