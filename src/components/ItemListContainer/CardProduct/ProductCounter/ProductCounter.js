@@ -25,7 +25,7 @@ const ProductCounter=(props)=>{
       <button onClick={min} className="SignosCounter">
         -
       </button>
-      <button className="ButtonAdd">
+      <button className="ButtonAdd" onClick={()=>{props.onAdd(count)}}>
         Añadir al carrito
       </button>
     </div>

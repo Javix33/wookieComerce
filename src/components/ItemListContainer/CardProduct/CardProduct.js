@@ -4,6 +4,11 @@ import ProductImage from "./ProductImage/abrax.jpg"
 
 
 const CardProduct=(props)=>{
+  const addToCart=(productsToAdd)=>{
+    if (productsToAdd >0){
+    console.log(`Se añadieron ${productsToAdd} al carrito de compra` )
+  };
+};
 
   return(
     <div className="CardProduct">
@@ -14,7 +19,7 @@ const CardProduct=(props)=>{
       <p className="ProductInfo">
         Stock disponible {props.stock} pzas.
       </p>
-      <ProductCounter stock={props.stock} counter="0" />
+      <ProductCounter onAdd={addToCart} stock={props.stock} counter="0" />
     </div>
   );
 };
