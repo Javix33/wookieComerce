@@ -17,7 +17,7 @@ const products = [{
     image: "https://javix33.github.io/wookie/resources/imagenes/productos/pink1.jpg"
   },
   {
-    id: 1,
+    id: 3,
     title: "Green Trooper",
     price: 120,
     sublinea: "Troopers",

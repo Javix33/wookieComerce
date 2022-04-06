@@ -1,15 +1,11 @@
-.ProductList {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 .CardProduct {
+  height: 45vh;
   list-style-type: none;
   margin: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   padding: 1%;
   width: 25%;
   background-color: blueviolet;
@@ -36,9 +32,26 @@
 }
 
 .ProductInfo {
+  margin-top: 2%;
   color: white;
   text-align: center;
   font-family: sans-serif;
   font-size: 22px;
   font-weight: 550;
+}
+
+.ButtonDetalles {
+  color: white;
+  padding: 3px;
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: white solid 1px;
+  margin-top: 2%;
+  align-self: flex-end;
+}
+
+.ButtonDetalles:active {
+  transform: scale(.9);
 }

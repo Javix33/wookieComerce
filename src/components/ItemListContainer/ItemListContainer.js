@@ -1,9 +1,8 @@
-import "./CardProduct/CardProduct.css";
+
 import "./ItemListContainer.css";
-import { getProducts } from "./asyncmok";
+import { getProducts } from "../asyncmok";
 import { useEffect, useState } from "react";
-import "./CardProduct/ProductCounter/ProductCounter";
-import ProductCounter from "./CardProduct/ProductCounter/ProductCounter";
+import {ItemList} from "../ItemList/ItemList.js"
 
 
 const ItemListContainer=(props)=>{
@@ -15,23 +14,14 @@ getProducts().then(product=>{
 })
 }, [])
   return(
+    <div>
+      <h1 className="TitleMain">
+        {props.greeting}
+      </h1>
     <ul className="ProductList">
-      {products.map(product=> 
-      <li className="CardProduct">
-        <h1 className="ProductName">
-          {product.title}
-        </h1>
-        <p className="Details">
-          Stock:{product.stock}
-        </p>
-        <img className="ProductImage" src={product.image} alt={product.title} />
-        <p className="ProductInfo">
-          {product.descripcion}
-          ${product.price}.00
-          </p>
-          <ProductCounter stock={product.stock}/>
-        </li>)}
+      <ItemList products={products}/>
     </ul>
-  );
+    </div>
+  )
 };
 export default ItemListContainer
