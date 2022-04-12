@@ -1,0 +1,18 @@
+.ProductsMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.TitleMain {
+  color: white;
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+.ProductList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
