@@ -1,4 +1,6 @@
 import "./Item.css";
+import { Link } from "react-router-dom";
+
 export const Item =(props)=>{
 return(
       <li className="CardProduct">
@@ -9,9 +11,9 @@ return(
         <p className="ProductInfo">
           {props.descripcion}
         </p>
-        <button className="ButtonDetalles">
+        <Link to={`/Tienda/${props.id}`} className="ButtonDetalles">
           Ver detalles
-        </button>
+        </Link>
       </li>)
         }
 

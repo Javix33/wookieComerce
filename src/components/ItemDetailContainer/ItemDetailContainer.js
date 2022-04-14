@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import {ItemDetail} from "../ItemDetail/ItemDetail.js"
 
 
-const ItemDetailContainer=()=>{
+const ItemDetailContainer=(props)=>{
 const [product, setProduct]=useState({});
 
 useEffect(()=>{
-getProductsById(3).then(product=>{
+getProductsById(props.id).then(product=>{
   setProduct(product);
 })
 console.log(product)

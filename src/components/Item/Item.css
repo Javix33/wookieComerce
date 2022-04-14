@@ -50,6 +50,7 @@
   border: white solid 1px;
   margin-top: 2%;
   align-self: flex-end;
+  text-decoration: none;
 }
 
 .ButtonDetalles:active {
