@@ -1,17 +1,19 @@
 import "./ItemDetailContainer.css";
 import { getProductsById } from "../asyncmok";
 import { useEffect, useState } from "react";
-import {ItemDetail} from "../ItemDetail/ItemDetail.js"
+import {ItemDetail} from "./ItemDetail/ItemDetail.js"
+import { useParams } from "react-router-dom";
 
 
 const ItemDetailContainer=(props)=>{
+  const{ProductId}=useParams();
 const [product, setProduct]=useState({});
 
 useEffect(()=>{
-getProductsById(props.id).then(product=>{
+getProductsById(ProductId).then(product=>{
   setProduct(product);
 })
-console.log(product)
+
 }, [])
   return(
     <div>

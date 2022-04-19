@@ -11,7 +11,7 @@ return(
         <p className="ProductInfo">
           {props.descripcion}
         </p>
-        <Link to={`/Tienda/${props.id}`} className="ButtonDetalles">
+        <Link to={`/Detail/${props.id}`} className="ButtonDetalles">
           Ver detalles
         </Link>
       </li>)

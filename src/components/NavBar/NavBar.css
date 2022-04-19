@@ -11,6 +11,11 @@
 }
 
 .logo {
+  width: 100%;
+  height: auto;
+}
+
+.HomeLink {
   padding: 1.5%;
   width: 9%;
   height: auto;

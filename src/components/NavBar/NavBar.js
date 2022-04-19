@@ -2,18 +2,21 @@ import "./NavBar.css";
 import Logo from "./images/LogoPNG.png";
 import NavLink from "./NavLink/NavLink.js"
 import CarWidget from "./CarWidget/CarWidget.js";
+import { Link } from "react-router-dom";
 
 const NavBar=()=>{
 return(
   <nav className="NavBar">
+    <Link to="/" className="HomeLink">
     <img className="logo" src={Logo} alt="logotipo wookie" />
-    <NavLink title="Wookies"/>
+    </Link>
+    <NavLink category="Wookies"/>
     
-    <NavLink title="Mos Eisley"/>
+    <NavLink category="MosEisley"/>
     
-    <NavLink title="Troopers"/>
+    <NavLink category="Troopers"/>
     
-    <NavLink title="Mandalorian"/>
+    <NavLink category="Mandalorian"/>
     <CarWidget title="Carrito" />
   </nav>
 ); 

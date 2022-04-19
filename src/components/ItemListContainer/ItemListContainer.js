@@ -2,15 +2,15 @@
 import "./ItemListContainer.css";
 import { getProducts } from "../asyncmok";
 import { useEffect, useState } from "react";
-import {ItemList} from "../ItemList/ItemList.js"
+import {ItemList} from "./ItemList/ItemList.js"
 
 
 const ItemListContainer=(props)=>{
 const [products, setProducts]=useState([]);
 
 useEffect(()=>{
-getProducts().then(product=>{
-  setProducts(product);
+getProducts().then(products=>{
+  setProducts(products);
 })
 }, [])
   return(
