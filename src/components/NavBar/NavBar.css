@@ -10,9 +10,14 @@
   justify-content: space-evenly;
 }
 
-.logo {
-  padding: 1.5%;
+.LinkLogo {
   width: 9%;
-  height: auto;
+  height: 100%;
+  padding: 1.5%;
   justify-self: flex-start;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
 }

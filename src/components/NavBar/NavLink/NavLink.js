@@ -1,11 +1,12 @@
 import "./NavLink.css";
+import { Link } from "react-router-dom";
 
 const NavLink=(props)=>{
 
   return(
-  <button className="categoria">
+<Link to={`/${props.title}`} className="categoria">
     {props.title}
-  </button>
+  </Link>
   );
 };
 

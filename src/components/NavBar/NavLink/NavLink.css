@@ -1,7 +1,9 @@
 .categoria {
+  text-decoration: none;
   font-family: sans-serif;
   color: white;
   font-size: 25px;
   background: none;
   border: none;
+  align-self: center;
 }
