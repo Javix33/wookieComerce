@@ -13,7 +13,7 @@ getProductsByCategory(ProductCategory).then(products=>{
   setProducts(products);
 })
 console.log(ProductCategory)
-}, [])
+}, [ProductCategory])
   return(
     
       

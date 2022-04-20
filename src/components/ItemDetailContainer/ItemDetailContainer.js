@@ -14,7 +14,7 @@ getProductsById(ProductId).then(product=>{
   setProduct(product);
 })
 
-}, [])
+}, [ProductId])
   return(
     <div>
     <ul className="ProductList">
