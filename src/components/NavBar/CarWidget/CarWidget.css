@@ -1,11 +1,16 @@
 .Cart {
+  background: linear-gradient(90deg, #3b0871 15%, #481d95 51%, #76519e 94%);
+  margin-top: 2%;
+  height: 12vh;
+  width: 6vw;
+  border: solid 2px white;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .Halcon {
-  margin-top: 3vh;
   height: 8vh;
   transform: rotate(45deg);
 }

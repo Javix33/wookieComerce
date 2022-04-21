@@ -1,5 +1,5 @@
 .CardProduct {
-  height: 45vh;
+  height: fit-content;
   list-style-type: none;
   margin: 2%;
   display: flex;
@@ -28,7 +28,7 @@
 
 .ProductImage {
   width: 70%;
-  border-radius: 10%;
+  border-radius: 10px;
 }
 
 .ProductInfo {

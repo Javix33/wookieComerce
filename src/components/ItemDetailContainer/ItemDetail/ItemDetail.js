@@ -1,5 +1,14 @@
 import "./ItemDetail.css";
+import ItemCount from "./ItemCount/ItemCount";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export const ItemDetail =(props)=>{
+const [ProductsToCart, setProductsToCart]=useState(0);
+const SetCart =(count)=>{
+  setProductsToCart(count)
+};
+
 return(
       <li className="CardProductDetail">
         <h3 className="ProductNameDetail">
@@ -14,10 +23,12 @@ return(
           </div>
         </div>
         <p className="ProductInfoDetail">
+          Estock disponible {props.product.stock}
+        </p>
+        <p className="ProductInfoDetail">
           ${props.product.price}.00
         </p>
-        <button className="ButtonDetalles">
-          Añadir al carrito
-        </button>
+        <ItemCount stock={props.product.stock} onAdd={SetCart}/>
+        {ProductsToCart !== 0 ? <Link to="/cart" className="ButtonDetalles">Ir al carrito</Link>: null}
       </li>)
         }

@@ -1,7 +1,7 @@
-import "./ProductCounter.css";
+import "./ItemCount.css";
 import {useState} from 'react';
 
-const ProductCounter=(props)=>{
+const ItemCount=(props)=>{
     const [count, countFunction] = useState(0);
     const add=()=>{
       if (count < props.stock){
@@ -31,4 +31,4 @@ const ProductCounter=(props)=>{
     </div>
   );
   };
-export default ProductCounter;
+export default ItemCount;
