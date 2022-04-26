@@ -1,15 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar/NavBar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.js';
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import ItemCategoryContainer from "./components/ItemCategoryContainer/ItemCategoryContainer.js";
+import {CartContextProvider} from "./components/Context/CartContext";
 
 function App() {
   
   return (
     <div className="App">
+      <CartContextProvider >
       <BrowserRouter>
         <header className="App-header">
           <NavBar />
@@ -37,9 +38,8 @@ function App() {
             
           </Routes>
           </section>
-        
-        
       </BrowserRouter>
+      </CartContextProvider>
     </div>
   );
 }

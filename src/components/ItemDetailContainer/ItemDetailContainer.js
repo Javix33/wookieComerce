@@ -18,7 +18,7 @@ getProductsById(ProductId).then(product=>{
   return(
     <div>
     <ul className="ProductList">
-    <ItemDetail product={product}/>
+    <ItemDetail {...product}/>
     </ul>
     </div>
   )

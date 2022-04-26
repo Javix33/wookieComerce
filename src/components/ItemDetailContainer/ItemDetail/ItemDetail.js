@@ -1,34 +1,40 @@
 import "./ItemDetail.css";
 import ItemCount from "./ItemCount/ItemCount";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../../Context/CartContext";
 
-export const ItemDetail =(props)=>{
-const [ProductsToCart, setProductsToCart]=useState(0);
-const SetCart =(count)=>{
-  setProductsToCart(count)
-};
 
+export const ItemDetail =({id, title, descripcion, stock, price, image})=>{
+  
+const {addItem, isInCart} = useContext(CartContext)
+
+const SetQuantity =(count)=>{
+  
+  const productToAddCart= {id, title,descripcion,stock,price, image}
+  addItem({...productToAddCart, quantity: count})
+}
 return(
       <li className="CardProductDetail">
         <h3 className="ProductNameDetail">
-            {props.product.title}
+            {title}
           </h3>
         <div className="DetailContainer">
-          <img className="ProductImageDetail" src={props.product.image} alt={props.product.title} />
+          <img className="ProductImageDetail" src={image} alt={title} />
           <div className="ProductDetail">
             <p className="ProductInfoDetail">
-              {props.product.descripcion}
+              {descripcion}
             </p>
           </div>
         </div>
         <p className="ProductInfoDetail">
-          Estock disponible {props.product.stock}
+          Estock disponible {stock}
         </p>
         <p className="ProductInfoDetail">
-          ${props.product.price}.00
+          ${price}.00
         </p>
-        <ItemCount stock={props.product.stock} onAdd={SetCart}/>
-        {ProductsToCart !== 0 ? <Link to="/cart" className="ButtonDetalles">Ir al carrito</Link>: null}
+        
+        
+        {isInCart(id) ? <Link to="/cart" className="ButtonDetalles">Ir al carrito</Link>:<ItemCount stock={stock} onAdd={SetQuantity}/>}
       </li>)
         }
