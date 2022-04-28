@@ -3,8 +3,11 @@ import Logo from "./images/LogoPNG.png";
 import NavLink from "./NavLink/NavLink.js"
 import CarWidget from "./CarWidget/CarWidget.js";
 import { Link } from "react-router-dom";
+import CartContext from "../Context/CartContext";
+import { useContext } from "react";
 
 const NavBar=()=>{
+  const{cart}=useContext(CartContext)
 return(
   <nav className="NavBar">
     <Link to="/" className="HomeLink">
@@ -17,7 +20,7 @@ return(
     <NavLink category="Troopers"/>
     
     <NavLink category="Mandalorian"/>
-    <CarWidget title="Carrito" />
+    {cart.length !==0? <CarWidget title="Carrito" />:null}
   </nav>
 ); 
 };

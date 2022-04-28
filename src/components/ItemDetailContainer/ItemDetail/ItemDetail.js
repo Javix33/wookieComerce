@@ -1,6 +1,6 @@
 import "./ItemDetail.css";
 import ItemCount from "./ItemCount/ItemCount";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../Context/CartContext";
 
@@ -35,6 +35,6 @@ return(
         </p>
         
         
-        {isInCart(id) ? <Link to="/cart" className="ButtonDetalles">Ir al carrito</Link>:<ItemCount stock={stock} onAdd={SetQuantity}/>}
+        {isInCart(id) ? <Link to="/Cart" className="ButtonDetalles">Ir al carrito</Link>:<ItemCount stock={stock} onAdd={SetQuantity}/>}
       </li>)
         }

@@ -1,0 +1,29 @@
+.CartItemCard {
+  border: 2px solid white;
+  border-radius: 10px;
+  height: fit-content;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2%;
+}
+
+.CartItemTitle {
+  font-family: sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
+.CartItemPrice {
+  font-family: sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.CartItemImg {
+  width: auto;
+  height: 35px;
+  border-radius: 10px;
+  border: 2px solid white;
+}
