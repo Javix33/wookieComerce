@@ -3,7 +3,7 @@ import { useContext } from "react"
 import CartContext from "../../Context/CartContext"
 
 const CartItem=(props)=>{
-  const {removeItem}=useContext(CartContext)
+  const {removeItem,removeSubtotal}=useContext(CartContext)
   
   return(
     
@@ -22,7 +22,7 @@ const CartItem=(props)=>{
         Subtotal: ${props.price*props.quantity}.00
         
       </p>
-      <button onClick={()=>{removeItem(props.id)}} >
+      <button onClick={()=>{removeItem(props.id, props.price, props.quantity)}} >
         Eliminar producto
       </button>
       

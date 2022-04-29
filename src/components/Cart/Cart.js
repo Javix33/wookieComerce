@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 const Cart=()=>{
   
-const {cart}=useContext(CartContext)
+const {cart, Total}=useContext(CartContext)
 
     if(cart.length === 0){
       return(
@@ -29,7 +29,7 @@ return(
     {cart.map(prod=> <CartItem id={prod.id} title={prod.title} price={prod.price} quantity={prod.quantity}  key={prod.id}/>)}
     
     <p>
-      Precio total ${}.00
+      Precio total ${Total}.00
     </p>
   </ul>
 )
