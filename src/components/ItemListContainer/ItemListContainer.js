@@ -1,18 +1,31 @@
 
 import "./ItemListContainer.css";
-import { getProducts } from "../asyncmok";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import{firestoreDb} from "../../services/firebase/index"
 import { useEffect, useState } from "react";
 import {ItemList} from "./ItemList/ItemList.js"
+import { useParams } from "react-router-dom";
 
 
 const ItemListContainer=(props)=>{
 const [products, setProducts]=useState([]);
+const{CategoryId}=useParams();
 
-useEffect(()=>{
-getProducts().then(products=>{
-  setProducts(products);
-})
-}, [])
+const collectionRef= CategoryId ? query(collection(firestoreDb, "products"), where("category", "==",  CategoryId)):collection(firestoreDb, "products")
+console.log(CategoryId)
+
+useEffect(() => {
+  
+  getDocs(collectionRef).then(response=>{
+    const products=response.docs.map(doc=>{
+      return {id:doc.id, ...doc.data()}
+      
+    })
+    setProducts(products)
+    console.log(products)
+  })
+  
+}, [CategoryId])
   return(
     <div>
       <h1 className="TitleMain">

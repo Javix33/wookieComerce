@@ -3,7 +3,7 @@ import { useContext } from "react"
 import CartContext from "../../Context/CartContext"
 
 const CartItem=(props)=>{
-  const {removeItem,removeSubtotal}=useContext(CartContext)
+  const {removeItem}=useContext(CartContext)
   
   return(
     
