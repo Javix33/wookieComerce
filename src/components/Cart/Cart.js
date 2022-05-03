@@ -8,7 +8,8 @@ import { firestoreDb } from "../../services/firebase"
 
 
 const Cart=()=>{
-const[orderStatus, setOrderStatus]=useState(true)
+const[orderStatus, setOrderStatus]=useState("")
+const[orderId, setOrderId]=useState("")
 const {cart, Total, cleanCart}=useContext(CartContext)
 
 const placeOrder=()=>{
@@ -33,7 +34,7 @@ const placeOrder=()=>{
           )
     )
     ).then(
-      response=> {console.log(response)
+      response=> {
         response.docs.forEach(
           doc=>{
             const dataDoc= doc.data()
@@ -57,11 +58,12 @@ const placeOrder=()=>{
         }).then(
           ({id})=>{
             batch.commit()
-            console.log(`el id de la orden es ${id}`)
+            setOrderId(id)
+            setOrderStatus("succesfull")
           }
         ).catch(
           error=>{
-          setOrderStatus(false)
+          setOrderStatus("error")
         }
         )
       }
@@ -80,9 +82,14 @@ const placeOrder=()=>{
         </div>
       )
     }
-    if (!orderStatus){
+    if (orderStatus==="error"){
       return <h1 className="Empty">
         no tenemos suficiente stock para completar tu orden
+      </h1>
+    }
+    if(orderStatus==="succesfull"){
+      return <h1 className="Empty">
+        Tu orden ha sido procesada con exito con el número de orden: {orderId}
       </h1>
     }
     
