@@ -12,7 +12,6 @@ const [products, setProducts]=useState([]);
 const{CategoryId}=useParams();
 
 const collectionRef= CategoryId ? query(collection(firestoreDb, "products"), where("category", "==",  CategoryId)):collection(firestoreDb, "products")
-console.log(CategoryId)
 
 useEffect(() => {
   
@@ -22,7 +21,7 @@ useEffect(() => {
       
     })
     setProducts(products)
-    console.log(products)
+    
   })
   
 }, [CategoryId])

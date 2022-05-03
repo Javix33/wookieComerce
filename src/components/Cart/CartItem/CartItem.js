@@ -22,7 +22,7 @@ const CartItem=(props)=>{
         Subtotal: ${props.price*props.quantity}.00
         
       </p>
-      <button onClick={()=>{removeItem(props.id, props.price, props.quantity)}} >
+      <button className="ButtonCart" onClick={()=>{removeItem(props.id, props.price, props.quantity)}} >
         Eliminar producto
       </button>
       

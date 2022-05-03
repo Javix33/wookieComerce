@@ -25,7 +25,7 @@ return(
     <Link to="/" className="HomeLink">
     <img className="logo" src={Logo} alt="logotipo wookie" />
     </Link>
-  {categories.map(category=> <NavLink category={category.descripcion}/>) }
+  {categories.map(category=> <NavLink key={category.id} category={category.descripcion}/>) }
     {cart.length !==0? <CarWidget title="Carrito" />:null}
   </nav>
 ); 
