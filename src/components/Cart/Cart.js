@@ -105,8 +105,11 @@ return(
     <button className="ButtonCart" onClick={()=>{cleanCart()}}>
       Vaciar carrito
     </button>
+    <Link to="/Check_out" className="ButtonCart">
+    Continua con la compra
+    </Link>
     <button className="ButtonCart" onClick={()=>{placeOrder()}}>
-      Continua con la compra
+      Continua 
     </button>
   
   </div>
