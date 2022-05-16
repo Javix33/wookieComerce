@@ -15,15 +15,15 @@ Para poder correr el proyecto es necesario:
 Si los requerimientos se cumplen sera posible correr el proyecto con el comando "npm start" que creara en servidor local para la aplicacion, compilando en tiempo real el codigo.
 
 ## Capacidades
--Wookie comerce es una apliación de React que obtiene y presenta información desde el servicio "Firestore" del servicio de google "Firebase"
--La aplicacion es capaz de:
+-Wookie comerce es una apliación de React que obtiene y presenta información desde el servicio "Firestore" del servicio de google "Firebase"<br>
+-La aplicacion es capaz de:<br>
 
->-Cargar una lista productos.
->-Filtrar los productos por categoria.
->-Mostrar el stock de producto almacenado en Firestore.
->-Agregar productos al carrito de compra siempre que el stock lo permita.
->-Recabar la información del usuario.
->-Guardar la orden de compra de los usuarios en una coleccion de Firestore con los datos del usuario.
+>-Cargar una lista productos.<br>
+>-Filtrar los productos por categoria.<br>
+>-Mostrar el stock de producto almacenado en Firestore.<br>
+>-Agregar productos al carrito de compra siempre que el stock lo permita.<br>
+>-Recabar la información del usuario.<br>
+>-Guardar la orden de compra de los usuarios en una coleccion de Firestore con los datos del usuario.<br>
 >-Eliminar productos del carrito o bien vaciar el carrito por completo.
 >
 ## Componentes
