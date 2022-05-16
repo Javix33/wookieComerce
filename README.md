@@ -19,12 +19,12 @@ Si los requerimientos se cumplen sera posible correr el proyecto con el comando 
 -La aplicacion es capaz de:
 
 >-Cargar una lista productos.
--Filtrar los productos por categoria.
--Mostrar el stock de producto almacenado en Firestore.
--Agregar productos al carrito de compra siempre que el stock lo permita.
--Recabar la información del usuario.
--Guardar la orden de compra de los usuarios en una coleccion de Firestore con los datos del usuario.
--Eliminar productos del carrito o bien vaciar el carrito por completo.
+>-Filtrar los productos por categoria.
+>-Mostrar el stock de producto almacenado en Firestore.
+>-Agregar productos al carrito de compra siempre que el stock lo permita.
+>-Recabar la información del usuario.
+>-Guardar la orden de compra de los usuarios en una coleccion de Firestore con los datos del usuario.
+>-Eliminar productos del carrito o bien vaciar el carrito por completo.
 
 ## Componentes
 
