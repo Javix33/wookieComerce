@@ -3,13 +3,12 @@ import CartContext from '../../../Context/CartContext';
 import "./UserInfo.css"
 
 
-const UserInfo=()=>{
+const UserInfo=(props)=>{
     const {userData,setUserData}=useContext(CartContext)
    
 
     const handleInputChange = (event) => {
-         console.log(event.target.name)
-        console.log(event.target.value)
+        
         setUserData({
             ...userData,
             [event.target.name] : event.target.value
@@ -18,7 +17,7 @@ const UserInfo=()=>{
 
     const enviarDatos = (event) => {
         event.preventDefault()
-        console.log(userData)
+        
         
     }
 
@@ -33,8 +32,9 @@ const UserInfo=()=>{
                 
                     <input className='Input' type="correo electronico" placeholder="email" onChange={handleInputChange} name="email"></input>
                 </div>
-                <button className='FormSubmit' type="submit">Enviar datos</button>
+                <button className='FormSubmit' type="submit" onClick={()=>props.terminarCompra()}>Procesar compra</button>
             </form>
+
            
         </div>
     );

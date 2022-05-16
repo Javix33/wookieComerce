@@ -13,10 +13,10 @@ const CartItem=(props)=>{
       </h1>
       
       <p className="CartItemPrice">
-        precio: ${props.price}.00
+        ${props.price}.00 c/u
       </p>
       <p className="CartItemPrice">
-        Cantidad agregada al carrito {props.quantity}
+        Cantidad en carrito {props.quantity}
       </p>
       <p className="CartItemPrice">
         Subtotal: ${props.price*props.quantity}.00

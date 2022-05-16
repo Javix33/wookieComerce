@@ -38,10 +38,16 @@ const removeItem=(id, price, quantity)=>{
   const cleanCart=()=>{
     setCart([])
   }
+  const cleanAll=()=>{
+    setCart([])
+    setUserData({})
+    setTotal(0)
+  }
+
   
 
   return(
-    <CartContext.Provider value={{cart,userData,setUserData,totalProducts,addItem,isInCart, removeItem, Total, cleanCart}}>
+    <CartContext.Provider value={{cart,userData,setUserData,totalProducts,addItem,isInCart, removeItem, Total, cleanCart, cleanAll}}>
 {children}
     </CartContext.Provider>
   )

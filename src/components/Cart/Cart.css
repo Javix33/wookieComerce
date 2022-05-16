@@ -1,52 +1,60 @@
 * {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .CartList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  list-style-type: none;
-  font-family: sans-serif;
-  font-size: 30px;
-  color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+    font-family: sans-serif;
+    font-size: 30px;
+    color: white;
 }
 
 .Empty {
-  font-family: sans-serif;
-  font-size: 40px;
-  color: white;
+    margin: 5%;
+    font-family: sans-serif;
+    font-size: 30px;
+    color: white;
 }
 
 .Restart {
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: 25px;
-  color: white;
-  border: 2px solid white;
-  padding: 1%;
-  border-radius: 10px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 25px;
+    color: white;
+    border: 2px solid white;
+    padding: 1%;
+    border-radius: 10px;
 }
 
 .TotalPrice {
-  margin-top: 3%;
-  margin-bottom: 3%;
-  font-family: sans-serif;
-  font-size: 30px;
-  color: white;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-family: sans-serif;
+    font-size: 30px;
+    color: white;
 }
 
 .ButtonCart {
-  margin-top: 3%;
-  align-self: center;
-  padding: 1.5%;
-  background: none;
-  color: white;
-  font-family: sans-serif;
-  font-size: 18px;
-  width: fit-content;
-  height: fit-content;
-  border: solid 2px white;
-  border-radius: 10px;
+    margin-top: 3%;
+    align-self: center;
+    padding: 1.5%;
+    background: none;
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    width: fit-content;
+    height: fit-content;
+    border: solid 2px white;
+    border-radius: 10px;
+}
+
+.CartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
