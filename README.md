@@ -25,7 +25,7 @@ Si los requerimientos se cumplen sera posible correr el proyecto con el comando 
 >-Recabar la información del usuario.
 >-Guardar la orden de compra de los usuarios en una coleccion de Firestore con los datos del usuario.
 >-Eliminar productos del carrito o bien vaciar el carrito por completo.
-
+>
 ## Componentes
 
 Wookie ecomerce cuenta con los siguientes componentes
