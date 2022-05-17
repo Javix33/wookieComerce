@@ -2,15 +2,17 @@ import CartContext from "../../Context/CartContext"
 import { useContext,useState } from "react"
 import UserInfo from "./UserInfo/UserInfo"
 import CartItem from "../CartItem/CartItem"
-import { addDoc, collection, documentId, getDocs, query, Timestamp, where, writeBatch } from "firebase/firestore"
+import { addDoc, collection, Timestamp, writeBatch } from "firebase/firestore"
 import { firestoreDb } from "../../../services/firebase" 
 import "./OrderView.css"
 import { Link } from "react-router-dom"
+import { getCartDocs } from "../../../services/firebase/firestore"
 
 const OrderView=()=>{
     const[orderId, setOrderId]=useState("")
     const[orderStatus, setOrderStatus]=useState("")
-    const{cart, Total, userData, cleanAll }=useContext(CartContext)
+    const[outOfStock,setOutOfStock]=useState([])
+    const{cart, Total, userData, cleanAll, totalProducts }=useContext(CartContext)
    
     const placeOrder=()=>{
         const order={
@@ -26,14 +28,9 @@ const OrderView=()=>{
           const outOfStock=[]
           const ids= cart.map(prod=>prod.id)
           const batch=writeBatch(firestoreDb)
-          const collectionRef= collection(firestoreDb, "products")
-          getDocs(
-            query(
-              collectionRef, where(
-                documentId(), "in", ids
-                )
-          )
-          ).then(
+          
+          
+          getCartDocs(ids).then(
             response=> {
               response.docs.forEach(
                 doc=>{
@@ -41,12 +38,11 @@ const OrderView=()=>{
                   const prodStock=cart.find(prod=> prod.id ===doc.id)?.quantity
                   if(dataDoc.stock>= prodStock){
                     batch.update(doc.ref, {stock:dataDoc.stock-prodStock})
+                    
                   }else{
                     outOfStock.push({id:doc.id, dataDoc})
-                  }
-                }
-                )
-              }
+                    setOutOfStock(outOfStock[0].dataDoc) 
+                  }})}
               ).then(()=>{
                 if(outOfStock.length ===0){
                   const collectionRef= collection(firestoreDb,"orders")
@@ -58,27 +54,30 @@ const OrderView=()=>{
                   batch.commit()
                   setOrderId(id)
                   setOrderStatus("succesfull")
+                  
                 }
               ).catch(
-                error=>{
-                setOrderStatus("error")
-                
-              }
-              )
-            }
+                ()=>{setOrderStatus("error")}
+              )}
            
       
-            if (orderStatus==="error"){
+            if (orderStatus ==="error"){
+              
+              if(outOfStock.length === 0){
                 return <h1 className="Empty">
-                  Ha ocurrido un error, por favor recarga la pagina
+                 Por favor vuelve a la pagina anterior e ingresa todos los datos solicitados
                 </h1>
+              }else if(orderStatus.length !==0){
+                return <h1 className="Empty">
+                  No tenemos suficiente stock de: <br/> {outOfStock.title}, <br/>  solo nos queda {outOfStock.stock} pieza(s) <br/>por favor recarga la pagina
+                </h1>
+                }
               }
               if(orderStatus==="succesfull"){
                 return(
                 <div className="CheckOutContainer">
                     <h4 className="Empty">
                         Gracias por tu compra {userData.name} <br/>
-                  
                     </h4>
                     <p className="InfoOrder">
                         Tu orden ha sido procesada con exito con el número de orden: 
@@ -87,7 +86,7 @@ const OrderView=()=>{
                         Telefono: <br/>{userData.phone} <br/>
                         Correo electronico: <br/>{userData.email}<br/><br/>
                         Precio Total:<br/> ${Total}.00 <br/><br/>
-                        Productos totales {cart.length}.
+                        Productos comprados {totalProducts()}.
                     </p>
                     <Link to="/" className="CleanAll" onClick={()=>cleanAll()}>
                         Vuelve al inicio

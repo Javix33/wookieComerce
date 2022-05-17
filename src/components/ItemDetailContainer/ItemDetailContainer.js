@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getProduct } from "../../services/firebase/firestore";
 
 
-const ItemDetailContainer=(props)=>{
+const ItemDetailContainer=()=>{
   const{ProductId}=useParams();
 const [product, setProduct]=useState({});
 

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 const Cart=()=>{
 
 
-const {cart, Total, cleanCart}=useContext(CartContext)
+const {cart, Total, cleanAll}=useContext(CartContext)
 
 
 
@@ -20,7 +20,7 @@ const {cart, Total, cleanCart}=useContext(CartContext)
           El carrito esta vacio
         </h1>
         
-        <Link to="/" className="Restart">
+        <Link to="/" className="Restart" onClick={()=>{cleanAll()}} >
           Regresar al inicio
         </Link>
         </div>
@@ -37,7 +37,7 @@ return(
     <p className="TotalPrice">
       Precio total ${Total}.00
     </p>
-    <button className="ButtonCart" onClick={()=>{cleanCart()}}>
+    <button className="ButtonCart" onClick={()=>{cleanAll()}}>
       Vaciar carrito
     </button>
     <Link to="/Check_out" className="ButtonCart">

@@ -72,3 +72,35 @@ Wookie ecomerce cuenta con los siguientes componentes
 -NavLink
 >Crea los elementos de navegación por medio de la informacion recibida de "NavBar" correspondiente a las categorias existentes en Firestore, y les da la capacidad de navegar a su respectiva categoria donde "ItemDetailContainer" filtra los productos de la categoria correspondiente
 >
+
+## Correr con Firestore
+
+Para poder correr la aplicación con el ejemplo de Wookie ecomerce es necesario obtener el archivo ".env" de "https://mega.nz/file/FokXzKzL#w6UhWhn2pOrQl_8HwhmPaJjxkLM-Lj3-qEsa5wp7jzM" y colocarlo en la raiz del proyecto.
+
+## Requerimientos Firestore
+En caso de querer usar un proyecto diferente de Firestore se requiere cambiar las claves del proyecto en el documento "Index.js", la estructura del proyecto de Firestore es muy sencilla.
+### colecciones Firestore
+El proyecto de Firestore cuenta con 3 colecciones de documentos:
+-categories
+>La coleccion categories, provee a la aplicacion de los Id de categorias para crear el NavBar a traves de el componete NavLink, por lo que el numero de documentos en esta coleccion definira la cantidad de vinculos de navegación en la aplicacion, los documentos de esta coleccion constan de un Id para identificar la categoria y una descripcion que es la que entrega el nombre que llevara el vinculo de navegación.
+>
+-products
+>La coleccion products es donde se agrupan todos los Items(productos) que se presentan en la aplicación, estos documentos(Productos) deben contener como minimo 6 campos, cuyos nombres y tipos de valor deben ser:
+-category:"string"(Es el nombre de la categoria del producto, este se utiliza en la aplicacion para llevar a cabo el filtrado por categorias)
+-descripcion:"string"(una descripcion breve del producto que es requeriada en los componentes que muestran alguna vista de los productos)
+-image:"string"(una url de la imagen del producto alojada en algun servidor)
+-price:number(precio unitario del producto, debe ser un numero ya que se utiliza para algunas operaciones dentro del cart)
+-stock:number(Existencia del producto, debe ser un numero ya que se opera sobre este junto con el precio, ademas de ser el stock muy importante para el componente "Count" )
+-title:"string"(El nombre del producto)
+>
+-orders
+>Esta coleccion contiene los registros de ordenes creadas mediante la aplicación wookiecomerce, las cuales constan de:
+#### Datos del comprador"buyer"
+-name: "string"(nombre del comprador)
+-phone: "string"(número telefonico del comprador)
+-email:"string" (correo electronico del comprador)
+#### date: fecha
+#### items:"array" (un array con los productos procesados por el carrito de compras)
+
+## A considerar
+Si se quiere utilizar la aplicación con otro proyecto de firebase, debe considerarse mantener la estructura de las colecciones y documentes o bien implementar el adapter necesario para ello, de mantener la misma escritura, sera necesario, modificar las claves del proyecto de firebase en el archivo "index.js", debe tomarse en cuenta que el componente "OrderView" mantiene algunas funciones de firestore necesarias para la carga de los archivos de orden, por lo que muy posiblemente no requiera modificaciónes para funcionar con otro proyecto de firebase, siempre y cuando, se modifican correctamente las claves de firestore, sin embargo dicho componente requiriria adpatarse en caso de trabajar con algun otro tipo de servicio.

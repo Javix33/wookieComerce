@@ -1,4 +1,4 @@
-import { getDocs, getDoc, collection, query, where, doc } from "firebase/firestore";
+import { getDocs, getDoc, collection, query, where, doc, documentId } from "firebase/firestore";
 import { firestoreDb } from "./index"
 
 
@@ -29,6 +29,27 @@ export const getProduct = (ProductId) => {
         ).catch(error => {
             reject(error)
         })
+    })
+
+}
+export const getCategories = () => {
+    return new Promise((resolve, reject) => {
+        getDocs(collection(firestoreDb, "categories")).then(response => {
+            const categories = response.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+            })
+            resolve(categories)
+        }).catch(error => {
+            reject(error)
+        })
+    })
+}
+export const getCartDocs = (ids) => {
+    return new Promise((resolve, reject) => {
+        const collectionRef = collection(firestoreDb, "products")
+        getDocs(
+            query(collectionRef, where(documentId(), "in", ids))
+        ).then(response => resolve(response)).catch(error => reject(error))
     })
 
 }

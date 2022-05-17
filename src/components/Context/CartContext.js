@@ -35,9 +35,7 @@ const removeItem=(id, price, quantity)=>{
   const isInCart=(id)=>{
     return cart.some(product=>product.id === id)
   }
-  const cleanCart=()=>{
-    setCart([])
-  }
+  
   const cleanAll=()=>{
     setCart([])
     setUserData({})
@@ -47,7 +45,7 @@ const removeItem=(id, price, quantity)=>{
   
 
   return(
-    <CartContext.Provider value={{cart,userData,setUserData,totalProducts,addItem,isInCart, removeItem, Total, cleanCart, cleanAll}}>
+    <CartContext.Provider value={{cart,userData,setUserData,totalProducts,addItem,isInCart, removeItem, Total, cleanAll}}>
 {children}
     </CartContext.Provider>
   )

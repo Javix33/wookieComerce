@@ -20,13 +20,8 @@ function App() {
         <section className='MainContainer'>
           
           <Routes>
+            
             <Route path='/' element=
-            {
-                <Link to="/Tienda" className='ButtonStore'>
-                Abrir la tienda
-                </Link>
-            }/>
-            <Route path='/Tienda' element=
             {
               <ItemListContainer greeting="bienvenido a la tienda wookie" />
             }/>
@@ -46,6 +41,7 @@ function App() {
           </section>
       </BrowserRouter>
       </CartContextProvider>
+     
     </div>
   );
 }
