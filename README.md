@@ -99,8 +99,8 @@ El proyecto de Firestore cuenta con 3 colecciones de documentos:
 -name: "string"(nombre del comprador)
 -phone: "string"(número telefonico del comprador)
 -email:"string" (correo electronico del comprador)
-#### date: fecha
-#### items:"array" (un array con los productos procesados por el carrito de compras)
+- date: fecha
+- items:"array" (un array con los productos procesados por el carrito de compras)
 
 ## A considerar
 Si se quiere utilizar la aplicación con otro proyecto de firebase, debe considerarse mantener la estructura de las colecciones y documentes o bien implementar el adapter necesario para ello, de mantener la misma escritura, sera necesario, modificar las claves del proyecto de firebase en el archivo "index.js", debe tomarse en cuenta que el componente "OrderView" mantiene algunas funciones de firestore necesarias para la carga de los archivos de orden, por lo que muy posiblemente no requiera modificaciónes para funcionar con otro proyecto de firebase, siempre y cuando, se modifican correctamente las claves de firestore, sin embargo dicho componente requiriria adpatarse en caso de trabajar con algun otro tipo de servicio.
