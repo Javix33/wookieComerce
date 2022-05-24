@@ -2,10 +2,10 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.js';
-import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {CartContextProvider} from "./components/Context/CartContext";
 import Cart from "./components/Cart/Cart"
-import UserInfo from './components/Cart/OrderView/UserInfo/UserInfo';
+
 import OrderView from './components/Cart/OrderView/OrderView';
 
 function App() {
